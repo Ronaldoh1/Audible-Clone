@@ -14,6 +14,7 @@ class PageCollectionViewCell: UICollectionViewCell {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.image = UIImage(named: "page1")
+        iv.clipsToBounds = true
         return iv
     }()
 
