@@ -14,17 +14,21 @@ class ViewController: UIViewController {
 
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.dataSource = self
         cv.delegate = self
         cv.backgroundColor = .orange
+        cv.isPagingEnabled = true
         return cv
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //register cell
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView.register(PageCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
 
         view.addSubview(collectionView)
         collectionView.anchorToTop(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
@@ -71,6 +75,6 @@ extension ViewController : UICollectionViewDelegateFlowLayout {
 
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
-    
+
 }
 

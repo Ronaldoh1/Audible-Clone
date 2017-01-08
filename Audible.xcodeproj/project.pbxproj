@@ -14,6 +14,7 @@
 		F215A8E61E22CE390052F6A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F215A8E41E22CE390052F6A8 /* LaunchScreen.storyboard */; };
 		F215A8F11E22CE390052F6A8 /* AudibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F215A8F01E22CE390052F6A8 /* AudibleTests.swift */; };
 		F215A9001E22DD210052F6A8 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F215A8FF1E22DD210052F6A8 /* UIView+Extension.swift */; };
+		F215A9021E22F3470052F6A8 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F215A9011E22F3470052F6A8 /* PageCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		F215A8F01E22CE390052F6A8 /* AudibleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudibleTests.swift; sourceTree = "<group>"; };
 		F215A8F21E22CE390052F6A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F215A8FF1E22DD210052F6A8 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		F215A9011E22F3470052F6A8 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		F215A8FC1E22DCF40052F6A8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F215A9011E22F3470052F6A8 /* PageCollectionViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			files = (
 				F215A8E11E22CE390052F6A8 /* Audible.xcdatamodeld in Sources */,
 				F215A8DB1E22CE390052F6A8 /* ViewController.swift in Sources */,
+				F215A9021E22F3470052F6A8 /* PageCollectionViewCell.swift in Sources */,
 				F215A9001E22DD210052F6A8 /* UIView+Extension.swift in Sources */,
 				F215A8D91E22CE390052F6A8 /* AppDelegate.swift in Sources */,
 			);
