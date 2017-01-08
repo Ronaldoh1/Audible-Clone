@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		F215A8D91E22CE390052F6A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F215A8D81E22CE390052F6A8 /* AppDelegate.swift */; };
 		F215A8DB1E22CE390052F6A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F215A8DA1E22CE390052F6A8 /* ViewController.swift */; };
-		F215A8DE1E22CE390052F6A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F215A8DC1E22CE390052F6A8 /* Main.storyboard */; };
 		F215A8E11E22CE390052F6A8 /* Audible.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F215A8DF1E22CE390052F6A8 /* Audible.xcdatamodeld */; };
 		F215A8E31E22CE390052F6A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F215A8E21E22CE390052F6A8 /* Assets.xcassets */; };
 		F215A8E61E22CE390052F6A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F215A8E41E22CE390052F6A8 /* LaunchScreen.storyboard */; };
 		F215A8F11E22CE390052F6A8 /* AudibleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F215A8F01E22CE390052F6A8 /* AudibleTests.swift */; };
+		F215A9001E22DD210052F6A8 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F215A8FF1E22DD210052F6A8 /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +30,6 @@
 		F215A8D51E22CE390052F6A8 /* Audible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Audible.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F215A8D81E22CE390052F6A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F215A8DA1E22CE390052F6A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F215A8DD1E22CE390052F6A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F215A8E01E22CE390052F6A8 /* Audible.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Audible.xcdatamodel; sourceTree = "<group>"; };
 		F215A8E21E22CE390052F6A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F215A8E51E22CE390052F6A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		F215A8EC1E22CE390052F6A8 /* AudibleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudibleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F215A8F01E22CE390052F6A8 /* AudibleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudibleTests.swift; sourceTree = "<group>"; };
 		F215A8F21E22CE390052F6A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F215A8FF1E22DD210052F6A8 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +79,11 @@
 		F215A8D71E22CE390052F6A8 /* Audible */ = {
 			isa = PBXGroup;
 			children = (
+				F215A8FD1E22DCFA0052F6A8 /* Controllers */,
+				F215A8FC1E22DCF40052F6A8 /* Views */,
+				F215A8FB1E22DCDD0052F6A8 /* Models */,
+				F215A8FE1E22DD070052F6A8 /* Utils+Extensions */,
 				F215A8D81E22CE390052F6A8 /* AppDelegate.swift */,
-				F215A8DA1E22CE390052F6A8 /* ViewController.swift */,
-				F215A8DC1E22CE390052F6A8 /* Main.storyboard */,
 				F215A8E21E22CE390052F6A8 /* Assets.xcassets */,
 				F215A8E41E22CE390052F6A8 /* LaunchScreen.storyboard */,
 				F215A8E71E22CE390052F6A8 /* Info.plist */,
@@ -97,6 +99,36 @@
 				F215A8F21E22CE390052F6A8 /* Info.plist */,
 			);
 			path = AudibleTests;
+			sourceTree = "<group>";
+		};
+		F215A8FB1E22DCDD0052F6A8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		F215A8FC1E22DCF40052F6A8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		F215A8FD1E22DCFA0052F6A8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F215A8DA1E22CE390052F6A8 /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		F215A8FE1E22DD070052F6A8 /* Utils+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F215A8FF1E22DD210052F6A8 /* UIView+Extension.swift */,
+			);
+			name = "Utils+Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,7 +216,6 @@
 			files = (
 				F215A8E61E22CE390052F6A8 /* LaunchScreen.storyboard in Resources */,
 				F215A8E31E22CE390052F6A8 /* Assets.xcassets in Resources */,
-				F215A8DE1E22CE390052F6A8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +235,7 @@
 			files = (
 				F215A8E11E22CE390052F6A8 /* Audible.xcdatamodeld in Sources */,
 				F215A8DB1E22CE390052F6A8 /* ViewController.swift in Sources */,
+				F215A9001E22DD210052F6A8 /* UIView+Extension.swift in Sources */,
 				F215A8D91E22CE390052F6A8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,14 +259,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F215A8DC1E22CE390052F6A8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F215A8DD1E22CE390052F6A8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F215A8E41E22CE390052F6A8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
