@@ -70,10 +70,25 @@ class ViewController: UIViewController {
         observeKeyboardNotification()
     }
 
+    //Handle Rotation for iPhone
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+
+        collectionView.collectionViewLayout.invalidateLayout()
+
+        let indexPath = IndexPath(item: pageController.currentPage, section: 0)
+
+        //Scroll to indexPath after the rotation is going
+        DispatchQueue.main.sync {
+          collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
+        }
+
+        collectionView.reloadData()
+
+    }
+
     // MARK: Helper Methods
 
     @objc fileprivate func nextPage() {
-
         if pageController.currentPage == pages.count {
             return
         }
@@ -119,7 +134,10 @@ class ViewController: UIViewController {
     @objc fileprivate func handleKeyboardShow() {
 
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.view.frame = CGRect(x: 0, y: -50, width: self.view.frame.width, height: self.view.frame.height)
+
+            let y: CGFloat = UIDevice.current.orientation.isLandscape ? -100 : -50
+
+            self.view.frame = CGRect(x: 0, y: y, width: self.view.frame.width, height: self.view.frame.height)
         }, completion: nil)
     }
 

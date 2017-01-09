@@ -37,7 +37,13 @@ class PageCollectionViewCell: UICollectionViewCell {
                 return
             }
 
-            imageView.image = UIImage(named: page.imageName)
+            var imageName = page.imageName
+
+            if UIDevice.current.orientation.isLandscape  {
+                imageName += "_landScape"
+            }
+
+            imageView.image = UIImage(named: imageName)
 
             let color = UIColor(white: 0.2, alpha: 1)
             let attributedTitle = NSAttributedString(string: page.title, attributes: [NSFontAttributeName : UIFont.systemFont(ofSize: 20, weight: UIFontWeightMedium), NSForegroundColorAttributeName : color])
