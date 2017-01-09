@@ -10,14 +10,14 @@ import UIKit
 
 class PageCollectionViewCell: UICollectionViewCell {
 
-    let imageView: UIImageView = {
+   fileprivate let imageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         return iv
     }()
 
-    let textView: UITextView = {
+   fileprivate let textView: UITextView = {
         let tv = UITextView()
         tv.text = "Sample Text"
         tv.isEditable = false
@@ -25,7 +25,7 @@ class PageCollectionViewCell: UICollectionViewCell {
         return tv
     }()
 
-    let lineSeparator: UIView = {
+  fileprivate let lineSeparator: UIView = {
         let view = UIView()
         view.backgroundColor =  UIColor(white: 0.9, alpha: 1)
         return view
@@ -68,7 +68,7 @@ class PageCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setUpViews() {
+    fileprivate func setUpViews() {
         addSubview(imageView)
         addSubview(textView)
         addSubview(lineSeparator)

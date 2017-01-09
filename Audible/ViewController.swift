@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         observeKeyboardNotification()
     }
 
-    private func setUpViews() {
+    fileprivate func setUpViews() {
         view.addSubview(collectionView)
         view.addSubview(pageController)
         view.addSubview(skipButon)
@@ -147,7 +147,6 @@ extension ViewController : UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
-
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

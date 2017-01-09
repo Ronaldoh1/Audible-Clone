@@ -10,14 +10,14 @@ import UIKit
 
 class LoginCollectionViewCell: UICollectionViewCell {
 
-    let logoImageView: UIImageView = {
+    fileprivate let logoImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.image = UIImage(named: "logo")
         return iv
     }()
 
-    let emailTextField: LeftPaddeTextField = {
+    fileprivate let emailTextField: LeftPaddeTextField = {
         let textField = LeftPaddeTextField()
         textField.placeholder = "Enter Email"
         textField.isSecureTextEntry = true
@@ -26,7 +26,7 @@ class LoginCollectionViewCell: UICollectionViewCell {
         return textField
     }()
 
-    let passwordTextField: LeftPaddeTextField = {
+   fileprivate let passwordTextField: LeftPaddeTextField = {
         let textField = LeftPaddeTextField()
         textField.placeholder = "Enter Password"
         textField.layer.borderColor = UIColor.lightGray.cgColor
@@ -35,7 +35,7 @@ class LoginCollectionViewCell: UICollectionViewCell {
         return textField
     }()
 
-    let loginButton: UIButton = {
+  fileprivate let loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log in", for: .normal)
         button.setTitleColor(.white, for: .normal)
@@ -52,7 +52,7 @@ class LoginCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setUpViews() {
+   fileprivate func setUpViews() {
         addSubview(logoImageView)
         addSubview(emailTextField)
         addSubview(passwordTextField)
@@ -66,7 +66,6 @@ class LoginCollectionViewCell: UICollectionViewCell {
         _ = passwordTextField.anchor(emailTextField.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor , topConstant: 16, leftConstant: 32, bottomConstant: 0, rightConstant: 32, widthConstant: 0, heightConstant: 50)
 
         _ = loginButton.anchor(passwordTextField.bottomAnchor, left: leftAnchor, bottom: nil, right: rightAnchor , topConstant: 16, leftConstant: 32, bottomConstant: 0, rightConstant: 32, widthConstant: 0, heightConstant: 50)
-        
     }
     
 }
