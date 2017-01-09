@@ -42,17 +42,19 @@ class ViewController: UIViewController {
         return pc
     }()
 
-    let skipButon: UIButton = {
+    lazy var skipButon: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Skip", for: .normal)
         button.setTitleColor(UIColor(red: 247/255, green: 154/255, blue: 27/255, alpha: 1), for: .normal)
+        button.addTarget(self, action: #selector(skipPage), for: .touchUpInside)
         return button
     }()
 
-    let nextButton: UIButton = {
+    lazy var nextButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Next", for: .normal)
         button.setTitleColor(UIColor(red: 247/255, green: 154/255, blue: 27/255, alpha: 1), for: .normal)
+        button.addTarget(self, action: #selector(nextPage), for: .touchUpInside)
         return button
     }()
 
@@ -68,6 +70,28 @@ class ViewController: UIViewController {
         observeKeyboardNotification()
     }
 
+    // MARK: Helper Methods
+
+    @objc fileprivate func nextPage() {
+
+        if pageController.currentPage == pages.count {
+            return
+        }
+
+        if pageController.currentPage == pages.count - 1 {
+            moveViewsOffScreen()
+        }
+
+        let indexPath = IndexPath(item: pageController.currentPage + 1, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        pageController.currentPage += 1
+    }
+
+    @objc fileprivate func skipPage() {
+        pageController.currentPage = pages.count - 1 // go one before the last page.
+        nextPage() // go to the next page (the last page). we get to also animate items off the screen.
+    }
+
     fileprivate func setUpViews() {
         view.addSubview(collectionView)
         view.addSubview(pageController)
@@ -79,7 +103,6 @@ class ViewController: UIViewController {
 
         skipButtonTopAnchor = skipButon.anchor(view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant: 16, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 60, heightConstant: 50).first
         nextButtonTopAnchor = nextButton.anchor(view.topAnchor, left: nil, bottom: nil, right: view.rightAnchor, topConstant: 16, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 50, heightConstant: 50).first
-
     }
 
     fileprivate func observeKeyboardNotification() {
@@ -95,7 +118,7 @@ class ViewController: UIViewController {
 
     @objc fileprivate func handleKeyboardShow() {
 
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: { 
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.view.frame = CGRect(x: 0, y: -50, width: self.view.frame.width, height: self.view.frame.height)
         }, completion: nil)
     }
@@ -103,6 +126,18 @@ class ViewController: UIViewController {
     fileprivate func registerCells() {
         collectionView.register(LoginCollectionViewCell.self, forCellWithReuseIdentifier: loginCellID)
         collectionView.register(PageCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+    }
+
+    fileprivate func moveViewsOffScreen() {
+        pageControlBottomAnchor?.constant = 40
+        skipButtonTopAnchor?.constant =  -40
+        nextButtonTopAnchor?.constant = -40
+    }
+
+    fileprivate func putViewsBackToScreen() {
+        pageControlBottomAnchor?.constant = 0
+        skipButtonTopAnchor?.constant = 16
+        nextButtonTopAnchor?.constant = 16
     }
 
     //dismiss keyboard when you scroll
@@ -117,14 +152,10 @@ class ViewController: UIViewController {
 
         //we are on the last page
         if pageNumber == pages.count {
-            pageControlBottomAnchor?.constant = 40
-            skipButtonTopAnchor?.constant =  -40
-            nextButtonTopAnchor?.constant = -40
+            moveViewsOffScreen()
 
         } else {
-            pageControlBottomAnchor?.constant = 0
-            skipButtonTopAnchor?.constant = 16
-            nextButtonTopAnchor?.constant = 16
+            putViewsBackToScreen()
         }
 
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
@@ -136,7 +167,6 @@ class ViewController: UIViewController {
 }
 
 extension ViewController : UICollectionViewDelegate {
-
 
 
 }
@@ -179,11 +209,5 @@ extension ViewController : UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
-    
-}
-
-
-extension ViewController : UIPageViewControllerDelegate {
-    
     
 }
