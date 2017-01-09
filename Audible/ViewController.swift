@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.dataSource = self
         cv.delegate = self
+        cv.backgroundColor = .white
         cv.isPagingEnabled = true
         return cv
     }()
