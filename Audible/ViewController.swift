@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let cellID = "cellID"
+    fileprivate let cellID = "cellID"
+    fileprivate let loginCellID = "loginCellID"
 
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -33,11 +34,11 @@ class ViewController: UIViewController {
         return [firstPage, secondPage, thirdPage]
     }()
 
-    let pageController: UIPageControl = {
+    lazy var pageController: UIPageControl = {
         let pc = UIPageControl()
         pc.pageIndicatorTintColor = .lightGray
         pc.currentPageIndicatorTintColor = UIColor(red: 247/255, green: 154/255, blue: 27/255, alpha: 1)
-        pc.numberOfPages = 3
+        pc.numberOfPages = self.pages.count + 1
         return pc
     }()
 
@@ -57,9 +58,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //register cell
-        collectionView.register(PageCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+
+        registerCells()
 
         view.addSubview(collectionView)
         view.addSubview(pageController)
@@ -74,6 +74,16 @@ class ViewController: UIViewController {
 
     }
 
+    fileprivate func registerCells() {
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: loginCellID)
+        collectionView.register(PageCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+    }
+
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        // use pointee to determine which page you're on.
+        let pageNumber = Int(targetContentOffset.pointee.x / view.frame.width)
+        pageController.currentPage = pageNumber
+    }
 
 }
 
@@ -93,10 +103,16 @@ extension ViewController : UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pages.count
+
+        return pages.count + 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+        if indexPath.item == pages.count {
+            let loginCell = collectionView.dequeueReusableCell(withReuseIdentifier: loginCellID, for: indexPath)
+            return loginCell
+        }
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! PageCollectionViewCell
         let page = pages[indexPath.item]
@@ -119,3 +135,8 @@ extension ViewController : UICollectionViewDelegateFlowLayout {
 
 }
 
+
+extension ViewController : UIPageViewControllerDelegate {
+
+
+}
