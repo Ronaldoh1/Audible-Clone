@@ -33,6 +33,12 @@ class ViewController: UIViewController {
         return [firstPage, secondPage, thirdPage]
     }()
 
+    let pageController: UIPageControl = {
+        let pc = UIPageControl()
+        pc.pageIndicatorTintColor = .lightGray
+        return pc
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +46,10 @@ class ViewController: UIViewController {
         collectionView.register(PageCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
 
         view.addSubview(collectionView)
+        view.addSubview(pageController)
+
         collectionView.anchorToTop(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor)
+        pageController.ancho
     }
 
 
