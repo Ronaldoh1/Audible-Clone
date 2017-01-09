@@ -64,7 +64,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         registerCells()
+        setUpViews()
+        observeKeyboardNotification()
+    }
 
+    private func setUpViews() {
         view.addSubview(collectionView)
         view.addSubview(pageController)
         view.addSubview(skipButon)
@@ -78,9 +82,32 @@ class ViewController: UIViewController {
 
     }
 
+    fileprivate func observeKeyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardHidden), name: .UIKeyboardWillHide, object: nil)
+    }
+
+    @objc fileprivate func handleKeyboardHidden() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        }, completion: nil)
+    }
+
+    @objc fileprivate func handleKeyboardShow() {
+
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: { 
+            self.view.frame = CGRect(x: 0, y: -50, width: self.view.frame.width, height: self.view.frame.height)
+        }, completion: nil)
+    }
+
     fileprivate func registerCells() {
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: loginCellID)
+        collectionView.register(LoginCollectionViewCell.self, forCellWithReuseIdentifier: loginCellID)
         collectionView.register(PageCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+    }
+
+    //dismiss keyboard when you scroll
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        view.endEditing(true)
     }
 
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -100,10 +127,10 @@ class ViewController: UIViewController {
             nextButtonTopAnchor?.constant = 16
         }
 
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: { 
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
-        
+
     }
 
 }
@@ -150,14 +177,14 @@ extension ViewController : UICollectionViewDataSource {
 extension ViewController : UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+        
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
-
+    
 }
 
 
 extension ViewController : UIPageViewControllerDelegate {
-
-
+    
+    
 }

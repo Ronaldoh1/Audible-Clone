@@ -17,6 +17,7 @@
 		F215A9021E22F3470052F6A8 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F215A9011E22F3470052F6A8 /* PageCollectionViewCell.swift */; };
 		F215A9041E2322800052F6A8 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = F215A9031E2322800052F6A8 /* Page.swift */; };
 		F215A9061E237B550052F6A8 /* LoginCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F215A9051E237B550052F6A8 /* LoginCollectionViewCell.swift */; };
+		F215A9081E238F740052F6A8 /* LeftPaddeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F215A9071E238F740052F6A8 /* LeftPaddeTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		F215A9011E22F3470052F6A8 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F215A9031E2322800052F6A8 /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		F215A9051E237B550052F6A8 /* LoginCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCollectionViewCell.swift; sourceTree = "<group>"; };
+		F215A9071E238F740052F6A8 /* LeftPaddeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftPaddeTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			children = (
 				F215A9011E22F3470052F6A8 /* PageCollectionViewCell.swift */,
 				F215A9051E237B550052F6A8 /* LoginCollectionViewCell.swift */,
+				F215A9071E238F740052F6A8 /* LeftPaddeTextField.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				F215A9061E237B550052F6A8 /* LoginCollectionViewCell.swift in Sources */,
 				F215A9041E2322800052F6A8 /* Page.swift in Sources */,
 				F215A9021E22F3470052F6A8 /* PageCollectionViewCell.swift in Sources */,
+				F215A9081E238F740052F6A8 /* LeftPaddeTextField.swift in Sources */,
 				F215A9001E22DD210052F6A8 /* UIView+Extension.swift in Sources */,
 				F215A8D91E22CE390052F6A8 /* AppDelegate.swift in Sources */,
 			);
