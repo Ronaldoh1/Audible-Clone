@@ -135,7 +135,6 @@ class LoginViewController: UIViewController {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
 
             let y: CGFloat = UIDevice.current.orientation.isLandscape ? -100 : -50
-
             self.view.frame = CGRect(x: 0, y: y, width: self.view.frame.width, height: self.view.frame.height)
         }, completion: nil)
     }
@@ -158,6 +157,7 @@ class LoginViewController: UIViewController {
     }
 
     //dismiss keyboard when you scroll
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         view.endEditing(true)
     }
@@ -181,6 +181,8 @@ class LoginViewController: UIViewController {
     }
 
 }
+
+// MARK: LoginControllerDelegate
 
 extension LoginViewController : LoginControllerDelegate {
 

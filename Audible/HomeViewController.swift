@@ -22,7 +22,6 @@ class HomeViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .plain, target: self, action: #selector(handleLogOut))
     }
 
-
     @objc fileprivate func handleLogOut() {
         UserDefaults.standard.setIsLoggedIn(value: false)
 
