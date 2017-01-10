@@ -35,11 +35,12 @@ class LoginCollectionViewCell: UICollectionViewCell {
         return textField
     }()
 
-  fileprivate let loginButton: UIButton = {
+   lazy private var loginButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log in", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .orange
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
 
@@ -50,6 +51,12 @@ class LoginCollectionViewCell: UICollectionViewCell {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    weak var loginControllerDelegate: LoginViewController?
+    
+    @objc fileprivate func handleLogin() {
+        loginControllerDelegate?.finishLogginIn()
     }
 
    fileprivate func setUpViews() {

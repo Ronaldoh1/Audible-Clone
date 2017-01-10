@@ -13,8 +13,6 @@ class MainNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.backgroundColor = .red
-
         if isLoggedIn() {
             let homeViewController = HomeViewController()
             viewControllers = [homeViewController]
@@ -24,14 +22,13 @@ class MainNavigationController: UINavigationController {
         }
     }
 
-
     func showLoginController() {
         let loginController = LoginViewController()
         present(loginController, animated: true, completion: nil)
     }
 
     fileprivate func  isLoggedIn() -> Bool {
-        return true
+        return false
     }
 }
 
@@ -39,7 +36,9 @@ class MainNavigationController: UINavigationController {
 class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
+
+        navigationItem.title = "We're logged in"
+        
         let imageView = UIImageView(image: UIImage(named: "home"))
         view.addSubview(imageView)
 

@@ -19,6 +19,7 @@
 		F215A9061E237B550052F6A8 /* LoginCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F215A9051E237B550052F6A8 /* LoginCollectionViewCell.swift */; };
 		F215A9081E238F740052F6A8 /* LeftPaddeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F215A9071E238F740052F6A8 /* LeftPaddeTextField.swift */; };
 		F2E49C061E2455B800E18C8C /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E49C051E2455B800E18C8C /* MainNavigationController.swift */; };
+		F2E49C091E24E66300E18C8C /* LoginControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2E49C081E24E66300E18C8C /* LoginControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		F215A9051E237B550052F6A8 /* LoginCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginCollectionViewCell.swift; sourceTree = "<group>"; };
 		F215A9071E238F740052F6A8 /* LeftPaddeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftPaddeTextField.swift; sourceTree = "<group>"; };
 		F2E49C051E2455B800E18C8C /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		F2E49C081E24E66300E18C8C /* LoginControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		F215A8D71E22CE390052F6A8 /* Audible */ = {
 			isa = PBXGroup;
 			children = (
+				F2E49C071E24E64600E18C8C /* Protocols */,
 				F215A8FD1E22DCFA0052F6A8 /* Controllers */,
 				F215A8FC1E22DCF40052F6A8 /* Views */,
 				F215A8FB1E22DCDD0052F6A8 /* Models */,
@@ -144,6 +147,14 @@
 				F215A8FF1E22DD210052F6A8 /* UIView+Extension.swift */,
 			);
 			name = "Utils+Extensions";
+			sourceTree = "<group>";
+		};
+		F2E49C071E24E64600E18C8C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F2E49C081E24E66300E18C8C /* LoginControllerDelegate.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +263,7 @@
 				F215A8E11E22CE390052F6A8 /* Audible.xcdatamodeld in Sources */,
 				F215A8DB1E22CE390052F6A8 /* LoginViewController.swift in Sources */,
 				F215A9061E237B550052F6A8 /* LoginCollectionViewCell.swift in Sources */,
+				F2E49C091E24E66300E18C8C /* LoginControllerDelegate.swift in Sources */,
 				F215A9041E2322800052F6A8 /* Page.swift in Sources */,
 				F215A9021E22F3470052F6A8 /* PageCollectionViewCell.swift in Sources */,
 				F215A9081E238F740052F6A8 /* LeftPaddeTextField.swift in Sources */,

@@ -184,8 +184,18 @@ class LoginViewController: UIViewController {
 
 }
 
-extension LoginViewController : UICollectionViewDelegate {
+extension LoginViewController : LoginControllerDelegate {
 
+    func finishLogginIn() {
+        guard let rootViewController = UIApplication.shared.keyWindow?.rootViewController as?  MainNavigationController else {
+            return
+        }
+
+        rootViewController.viewControllers = [HomeViewController()]
+
+        dismiss(animated: true, completion: nil)
+
+    }
 
 }
 
@@ -205,13 +215,15 @@ extension LoginViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         if indexPath.item == pages.count {
-            let loginCell = collectionView.dequeueReusableCell(withReuseIdentifier: loginCellID, for: indexPath)
+            let loginCell = collectionView.dequeueReusableCell(withReuseIdentifier: loginCellID, for: indexPath) as! LoginCollectionViewCell
+            loginCell.loginControllerDelegate = self
             return loginCell
         }
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! PageCollectionViewCell
         let page = pages[indexPath.item]
         cell.page = page
+
 
         return cell
     }
