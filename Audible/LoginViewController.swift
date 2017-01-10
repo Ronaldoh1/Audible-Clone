@@ -79,7 +79,7 @@ class LoginViewController: UIViewController {
 
         //Scroll to indexPath after the rotation is going
         DispatchQueue.main.sync {
-          collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
+            collectionView.scrollToItem(at: indexPath, at: .centeredVertically, animated: true)
         }
 
         collectionView.reloadData()
@@ -132,7 +132,6 @@ class LoginViewController: UIViewController {
     }
 
     @objc fileprivate func handleKeyboardShow() {
-
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
 
             let y: CGFloat = UIDevice.current.orientation.isLandscape ? -100 : -50
@@ -179,7 +178,6 @@ class LoginViewController: UIViewController {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
-
     }
 
 }
@@ -192,9 +190,9 @@ extension LoginViewController : LoginControllerDelegate {
         }
 
         rootViewController.viewControllers = [HomeViewController()]
+        UserDefaults.standard.setIsLoggedIn(value: true)
 
         dismiss(animated: true, completion: nil)
-
     }
 
 }
@@ -224,7 +222,6 @@ extension LoginViewController : UICollectionViewDataSource {
         let page = pages[indexPath.item]
         cell.page = page
 
-
         return cell
     }
 
@@ -234,7 +231,7 @@ extension LoginViewController : UICollectionViewDataSource {
 
 
 extension LoginViewController : UICollectionViewDelegateFlowLayout {
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: view.frame.width, height: view.frame.height)
