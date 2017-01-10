@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  Audible
 //
 //  Created by Ronald Hernandez on 1/8/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     fileprivate let cellID = "cellID"
     fileprivate let loginCellID = "loginCellID"
@@ -184,14 +184,14 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController : UICollectionViewDelegate {
+extension LoginViewController : UICollectionViewDelegate {
 
 
 }
 
 // MARK: UICollectionView Delegate
 
-extension ViewController : UICollectionViewDataSource {
+extension LoginViewController : UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -221,7 +221,7 @@ extension ViewController : UICollectionViewDataSource {
 // MARK: UICollectionViewDelegateFlowLayout
 
 
-extension ViewController : UICollectionViewDelegateFlowLayout {
+extension LoginViewController : UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
